@@ -1,3 +1,43 @@
+#viirus, #globul {
+    position: absolute;
+    cursor: pointer;
+    width: 50px; /* Ajustez la taille */
+    height: auto; /* Maintient le ratio */
+    z-index: 1000; /* Assure que viirus est devant */
+    transition: opacity 0.3s ease;
+}
+#viirus {
+    position: absolute;
+    cursor: pointer;
+    width: 80px; /* Réduire la taille de l'image */
+    height: auto; /* Maintient le ratio de l'image */
+    transition: opacity 0.3s ease; /* Transition en douceur pour la disparition */
+    z-index: 1000; /* Positionne l'image au premier plan */
+    left: 0; /* Place l'image à gauche de l'écran */
+    top: 0; /* Optionnel: peut ajuster la position verticale */
+    display: flex;
+}
+#container img {
+    position: absolute;
+    cursor: pointer;
+    width: 50px; /* Adjust the size as needed */
+    height: auto; /* Maintains the image ratio */
+    z-index: 1000;
+    transition: opacity 0.3s ease;
+}
+
+#globule {
+    position: absolute;
+    width: 300px;
+    height: auto;
+    z-index: 1000;
+    left:200px;
+    bottom: 100px;
+    display: flex;
+
+    }
+
+
 /* Zone englobante */
 #temp {
     padding: 10px;
