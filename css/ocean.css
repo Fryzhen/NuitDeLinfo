@@ -1,0 +1,50 @@
+
+#ocean {
+    display: flex;
+    flex-direction: column;
+    > div {
+        height: 33%;
+        border: 1px black;
+    }
+}
+
+.glacier {
+    position: relative;
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.sky {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #87ceeb, #cce7ff);
+    z-index: -1;
+}
+
+.scene {
+    width: 200px;
+    height: 300px;
+    background: linear-gradient(to bottom, #eaf6f8, #b0e0e6);
+    border-radius: 0 0 50% 50%;
+    transition: height 3s ease, background-color 3s ease;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
