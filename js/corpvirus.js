@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('container');
     const globule = document.getElementById('globule');
-    const gameOverScreen = document.getElementById('gameOverScreen'); // Assurez-vous que cet élément existe
     const viirusSize = 50; // Suppose que la largeur et hauteur de viirus sont de 50px
     let viirusId = 0; // Identifiant unique pour chaque viirus
     let activeViirusCount = 0; // Compteur d'images viirus actives
@@ -18,8 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Trouver une position qui n'est pas sur l'image globule
         do {
-            posLeft = Math.random() * (window.innerWidth / 2) - 20; // Décaler légèrement vers la gauche
-            posTop = (window.innerHeight * 2 / 3) - 50 + Math.random() * (window.innerHeight / 3); // Décaler vers le haut
+            posLeft = Math.random() * (window.innerWidth / 2);
+            posTop = (window.innerHeight * 2 / 3) + Math.random() * (window.innerHeight / 3);
 
             viirusRect = {
                 left: posLeft,
@@ -92,11 +91,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const viirus = createViirus(viirusId++);
             addDraggableBehavior(viirus);
         } else {
+            // Si le nombre de viirus dépasse 8, afficher "Game Over"
             gameOverScreen.style.display = 'block'; // Affiche l'écran Game Over
 
             setTimeout(() => {
                 window.location.reload(); // Recharge la page après 3 secondes
             }, 3000);
         }
-    }, 4000); // Génère un nouveau viirus toutes les secondes
+    }, 1000); // Génère un nouveau viirus toutes les secondes
 });
