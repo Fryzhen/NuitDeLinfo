@@ -1,0 +1,47 @@
+#corp{
+    text-align: center;
+}
+#imgPoumon{
+    width: 35%;
+    transition: transform 0.5s ease;
+    display: block;
+    margin: 0 auto;
+}
+#respirer {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.3s;
+    font-family: "Noto Sans"
+}
+
+
+#respirer:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+
+}
+
+.oxygene-barre {
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    height: 20px;
+    width: 50%;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+
+.oxygene-barre-interne {
+    background-color: #4CAF50;
+    height: 100%;
+    width: 100%;
+    transition: width 0.05s linear;
+
+}
