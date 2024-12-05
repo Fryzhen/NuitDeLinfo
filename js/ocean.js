@@ -1,20 +1,15 @@
-// script.js
-document.querySelectorAll('.wave').forEach((wave, index) => {
-    const delay = index * 2; // Décale les animations pour chaque vague
-    wave.style.animationDelay = '1000';
-});
-const meltButton = document.getElementById("meltButton");
 const iceberg = document.querySelector(".iceberg");
 const dropsContainer = document.querySelector(".drops");
+const sun = document.getElementById("sun");
 
-meltButton.addEventListener("click", () => {
-    let scale = 1; // Taille initiale
-    let melting = true;
+let scale = 1; // Taille initiale de l'iceberg
+let sunPosition = 50; // Position horizontale du soleil
+let meltingSpeed = 0; // Vitesse de fonte
+let resetTimeout;
 
-    // Activer les gouttes
+// Ajouter les gouttes
+function createDrops() {
     dropsContainer.style.display = "block";
-
-    // Générer des gouttes dynamiques
     for (let i = 0; i < 10; i++) {
         const drop = document.createElement("div");
         drop.classList.add("drop");
@@ -22,20 +17,52 @@ meltButton.addEventListener("click", () => {
         drop.style.animationDelay = `${Math.random() * 2}s`;
         dropsContainer.appendChild(drop);
     }
+}
 
-    // Intervalle pour réduire progressivement l'iceberg
-    const meltInterval = setInterval(() => {
-        if (scale > 0.2) {
-            scale -= 0.01; // Réduire la taille progressivement
-            iceberg.style.transform = `scale(${scale})`;
-        } else {
-            clearInterval(meltInterval); // Arrêter l'animation lorsque l'iceberg a disparu
-            melting = false;
-            meltButton.textContent = "L'iceberg a fondu !";
-        }
-    }, 100); // Mise à jour toutes les 100 ms
+// Déplacer le soleil avec la souris
+sun.addEventListener("mousedown", (event) => {
+    event.preventDefault();
+    sun.style.cursor = "grabbing";
 
-    // Désactiver le bouton
-    meltButton.disabled = true;
-    meltButton.textContent = "L'iceberg fond...";
+    const onMouseMove = (e) => {
+        let newTop = Math.max(10, Math.min(e.clientY, window.innerHeight - 100));
+        let distanceFromIceberg = window.innerHeight - newTop;
+
+        sun.style.top = `${newTop}px`;
+        meltingSpeed = Math.max(0, (window.innerHeight - distanceFromIceberg) / 500); // Plus proche = plus rapide
+    };
+
+    const onMouseUp = () => {
+        sun.style.cursor = "grab";
+        document.removeEventListener("mousemove", onMouseMove);
+        document.removeEventListener("mouseup", onMouseUp);
+
+        // Réinitialiser le soleil après 5 secondes d'inactivité
+        clearTimeout(resetTimeout);
+        resetTimeout = setTimeout(() => {
+            sun.style.top = "10%";
+            meltingSpeed = 0;
+        }, 5000);
+    };
+
+    document.addEventListener("mousemove", onMouseMove);
+    document.addEventListener("mouseup", onMouseUp);
 });
+
+// Fondre l'iceberg progressivement
+function meltIceberg() {
+    if (scale > 0.2 && meltingSpeed > 0) {
+        scale -= meltingSpeed;
+        iceberg.style.transform = `scale(${scale})`;
+    }
+
+    if (scale <= 0.2) {
+        meltingSpeed = 0; // Arrêter la fonte lorsque l'iceberg a disparu
+    }
+
+    requestAnimationFrame(meltIceberg);
+}
+
+// Lancer la fonte
+createDrops();
+meltIceberg();
