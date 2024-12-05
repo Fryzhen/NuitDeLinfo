@@ -1,6 +1,13 @@
 #corp{
     text-align: center;
 }
+#poumon{
+    transition: background-color 0.5s;
+    background-color: rgb(0, 255, 0);
+    padding-bottom: 5px;
+    transition: opacity 0.5s;
+    opacity: 1;
+}
 #imgPoumon{
     width: 35%;
     transition: transform 0.5s ease;
@@ -10,7 +17,7 @@
 #respirer {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #4CAF50;
+    background-color: #93e6f4;
     color: white;
     font-size: 16px;
     border: none;
@@ -20,10 +27,15 @@
     transition: background-color 0.3s, transform 0.3s;
     font-family: "Noto Sans"
 }
-
+hr{
+    color: black;
+    margin-top:0;
+    height: 1px;
+    background-color: black;
+}
 
 #respirer:hover {
-    background-color: #45a049;
+    background-color: #5bc8c4;
     transform: scale(1.05);
 
 }
@@ -39,9 +51,16 @@
 
 
 .oxygene-barre-interne {
-    background-color: #4CAF50;
+    background-color: #93e6f4;
     height: 100%;
     width: 100%;
     transition: width 0.05s linear;
 
+}
+#game-over {
+    display: none; /* Masqué par défaut */
+    font-size: 24px;
+    color: red;
+    text-align: center;
+    margin-top: 20px;
 }
