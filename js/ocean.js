@@ -1,3 +1,8 @@
+// script.js
+document.querySelectorAll('.wave').forEach((wave, index) => {
+    const delay = index * 2; // Décale les animations pour chaque vague
+    wave.style.animationDelay = '1000';
+});
 const meltButton = document.getElementById("meltButton");
 const iceberg = document.querySelector(".iceberg");
 const dropsContainer = document.querySelector(".drops");
