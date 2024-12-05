@@ -1,4 +1,13 @@
-/* styles.css */
+/*all*/
+#ocean {
+    display: flex;
+    flex-direction: column;
+    > div {
+        height: 33%;
+        border: 1px black;
+    }
+}
+/* vague */
 
 .wave-container {
     position: relative;
@@ -24,15 +33,8 @@
     }
 }
 
-#ocean {
-    display: flex;
-    flex-direction: column;
-    > div {
-        height: 33%;
-        border: 1px black;
-    }
-}
 
+/* glacier */
 .glacier {
     position: relative;
     width: 100%;
