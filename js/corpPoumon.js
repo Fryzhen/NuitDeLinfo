@@ -35,7 +35,6 @@ document.addEventListener("DOMContentLoaded", function() {
             clearInterval(interval);
             gameOverMessage.style.display = 'block'
             respirer.disabled = true;
-
         }
     }
 
