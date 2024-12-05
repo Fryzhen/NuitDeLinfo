@@ -38,7 +38,7 @@
 .glacier {
     position: relative;
     width: 100%;
-    height: 80%;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -58,70 +58,72 @@
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 40%;
+    height: 45%;
     background: #4682b4;
+    z-index: 0.5;
 }
 
 .iceberg {
     position: absolute;
-    bottom: 20%;
+    bottom: 15%;
     display: flex;
     flex-direction: column;
     align-items: center;
     transform-origin: bottom center;
-    animation: float 3s ease-in-out infinite;
+    z-index: 0;
 }
 
-.ice-top {
+.ice-shape {
+    position: relative;
     width: 150px;
-    height: 100px;
-    background: linear-gradient(to bottom, #ffffff, #e0f7fa);
-    border-radius: 50px 50px 0 0;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    height: 180px;
+    background: linear-gradient(to bottom, #ffffff, #dceefc);
+    clip-path: polygon(50% 0, 80% 10%, 90% 30%, 70% 80%, 50% 100%, 30% 80%, 10% 50%, 20% 10%);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), inset 0 -5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
 }
 
-.ice-bottom {
-    width: 180px;
-    height: 100px;
-    background: linear-gradient(to bottom, #b2ebf2, #80deea);
-    clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
-}
-
+/* Gouttes d'eau sous l'iceberg */
 .drops {
     position: absolute;
-    bottom: 20%;
-    display: none; /* Les gouttes apparaîtront pendant la fonte */
+    bottom: 10%; /* Positionner un peu au-dessus de l'eau */
+    left: 50%; /* Centrer horizontalement par rapport à l'iceberg */
+    transform: translateX(-50%); /* Pour centrer les gouttes */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+/* Style pour chaque goutte */
 .drop {
-    position: absolute;
     width: 5px;
     height: 10px;
-    background: rgba(173, 216, 230, 0.8);
+    background: rgba(173, 216, 230, 0.8); /* Couleur de la goutte */
     border-radius: 50%;
     animation: fall 2s linear infinite;
+    opacity: 0.7; /* Pour un effet de transparence */
+    margin-bottom: 5px; /* Espace entre les gouttes */
 }
 
-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
+/* Animation de chute pour les gouttes */
+@keyframes fall {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(10px);
+    }
 }
-
+/* Soleil */
 .sun {
     position: absolute;
-    top: 10%;
-    left: 50%;
     width: 80px;
     height: 80px;
     background: radial-gradient(circle, #ffdf00, #ffaa00);
     border-radius: 50%;
     cursor: grab;
-    transition: top 1s ease-in-out;
+    transition: transform 0.3s ease;
+    z-index: 2; /* Le soleil est au-dessus de tout */
+    top: calc(15%); /* Positionné juste à côté de l'iceberg */
+    left: calc(50% + 80px);/* Ajusté pour être plus proche de l'iceberg */
 }
-
