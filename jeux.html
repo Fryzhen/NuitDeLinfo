@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clicker Affreux</title>
+    <script src="js/corp1.js" type="module" defer></script>
+    <script src="js/corp2.js" type="module" defer></script>
+    <script src="js/corp3.js" type="module" defer></script>
+    <script src="js/ocean1.js" type="module" defer></script>
+    <script src="js/ocean2.js" type="module" defer></script>
+    <script src="js/ocean3.js" type="module" defer></script>
+    <script src="js/gameover.js" type="module" defer></script>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/corp.css">
+    <link rel="stylesheet" href="css/ocean.css">
+    <link rel="stylesheet" href="css/test.css">
+
+</head>
+<body>
+
+<div id="corp">
+    <div id="temp">
+        <img alt="" src="img/bonhommevert.png" id="bonhomme"/>
+        <div id="temperatureContainer">
+            <input type="range" id="temperatureBar" min="34" max="40" step="0.1" value="37">
+            <div id="temperatureLabels">
+                <span>34°</span>
+                <span>35°</span>
+                <span>36°</span>
+                <span class="ideal">37°</span>
+                <span>38°</span>
+                <span>39°</span>
+                <span>40°</span>
+            </div>
+        </div>
+    </div>
+    <div id="poumon">
+        <img src="img/poumon1.png" id="imgPoumon">
+        <p id="respirer">Cliquez ici pour respirer <span id="temps-restant">100s</span></p>
+        <div class="oxygene-barre">
+            <div class="oxygene-barre-interne" id="oxygene-barre-interne"></div>
+        </div>
+    </div>
+    <div id="jeuvirus">
+        <div id="container-globule"></div>
+        <img id="globule" src="img/globulesblanc.png" alt="Globule">
+    </div>
+</div>
+<div id="ocean">
+    <div class="glacier">
+        <div class="sky"></div>
+        <div class="water"></div>
+        <div class="iceberg">
+            <div class="ice-shape"></div>
+        </div>
+        <div class="sun" id="sun"></div>
+
+    </div>
+    <div class="wave-container">
+        <svg id="vague1" class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"
+             preserveAspectRatio="none">
+            <path fill="#00aaff" fill-opacity="0.6"
+                  d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,208C672,181,768,107,864,85.3C960,64,1056,96,1152,101.3C1248,107,1344,85,1392,74.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+        <svg id="vague2" class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"
+             preserveAspectRatio="none">
+            <path fill="#0077cc" fill-opacity="0.8"
+                  d="M0,192L48,208C96,224,192,256,288,245.3C384,235,480,181,576,154.7C672,128,768,128,864,149.3C960,171,1056,213,1152,213.3C1248,213,1344,171,1392,149.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+        <div class="pump">
+            <div class="handle" id="handle"></div>
+        </div>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+            <div class="progress-text" id="progress-text">0%</div>
+        </div>
+    </div>
+    <div id="container"
+         style="position: relative; background-image: url('img/fond.jpg'); background-size: cover; background-position: center; border: 2px solid #333; overflow: hidden;">
+        <img src="img/poubelle.png" alt="Poubelle" id="poubelle"
+             style="position: absolute; bottom: 10px; left: 10px; width: 100px; height: auto; z-index: 10;">
+    </div>
+</div>
+</body>
+</html>
