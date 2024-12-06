@@ -1,5 +1,7 @@
 
 // Pompe
+import { gameover } from './gameover.js';
+
 const handle = document.getElementById("handle");
 const progressFill = document.getElementById("progress-fill");
 const progressText = document.getElementById("progress-text");
@@ -9,6 +11,9 @@ const pumpHeight = 200; // Hauteur de la pompe
 const handleHeight = 50; // Hauteur de la poignée
 let progress = 100;
 let isDragging1 = false;
+
+const vague1 = document.getElementById("vague1")
+const vague2 = document.getElementById("vague2")
 
 // Met à jour la barre de progression
 function updateProgressBar() {
@@ -83,15 +88,13 @@ setInterval(() => {
         progress -= 0.5;
         updateProgressBar();
         updateWaves()
+    } else {
+        gameover("vous avez laissé l'océan s'évaporer!!!")
     }
 }, 100);
 
 
 function updateWaves(){
-    const vague1 = document.getElementById("vague1")
-    const vague2 = document.getElementById("vague2")
-
-    vague1.style.height = progress * 5 + ""
-    vague2.style.height = progress * 5 + ""
-
+    vague1.style.height = progress * 5 + "px"
+    vague2.style.height = progress * 5 + "px"
 }

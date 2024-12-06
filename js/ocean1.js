@@ -7,6 +7,7 @@ let scale = 1; // Taille initiale de l'iceberg
 let isDragging = false;
 let offsetX, offsetY;
 
+
 sun.addEventListener('mousedown', (e) => {
     isDragging = true;
     // Calculer l'offset entre la position de la souris et la position du soleil
@@ -43,7 +44,7 @@ positionSun();
 
 // Gestion du déplacement du soleil
 sun.addEventListener("mousedown", (event) => {
-    dragging = true;
+    isDragging = true;
     sun.style.cursor = "grabbing";
 
     // Calculer le décalage entre le clic et le coin supérieur gauche du soleil
@@ -52,10 +53,10 @@ sun.addEventListener("mousedown", (event) => {
 });
 
 document.addEventListener("mousemove", (event) => {
-    if (!dragging) return;
+    if (!isDragging) return;
 
     // Suivre la position de la souris avec le décalage calculé
-    const sunX = event.clientX - offsetX - 950; // Ajuster la position avec le décalage
+    const sunX = event.clientX - offsetX - 700; // Ajuster la position avec le décalage
     const sunY = event.clientY - offsetY ; // Ajuster la position avec le décalage
     sun.style.left = `${Math.max(0, Math.min(window.innerWidth - 80, sunX))}px`;
     sun.style.top = `${Math.max(0, Math.min(window.innerHeight - 80, sunY))}px`;
@@ -73,8 +74,6 @@ document.addEventListener("mousemove", (event) => {
 
         const icebergPosition = iceberg.getBoundingClientRect();
 
-
-
         watersize.style.height = "58%";
         if(distance>1000){
             scale= Math.max(0.5,(distance-1050)/200)
@@ -83,20 +82,18 @@ document.addEventListener("mousemove", (event) => {
         }
 
     }
-    console.log(distance);
     iceberg.style.transform = `scale(${scale})`;
 
 });
 
 document.addEventListener("mouseup", () => {
-    dragging = false;
+    isDragging = false;
     sun.style.cursor = "grab";
 });
 
 // Animation continue de l'iceberg
 function animateIceberg() {
     if (scale <= 0.5) {
-        console.log("L'iceberg a fondu !");
     }
     requestAnimationFrame(animateIceberg);
 }
