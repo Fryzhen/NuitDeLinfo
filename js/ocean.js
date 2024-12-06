@@ -1,6 +1,6 @@
 const iceberg = document.querySelector(".iceberg");
 const sun = document.getElementById("sun");
-const dropsContainer = document.querySelector(".drops");
+const watersize = document.querySelector(".water");
 
 
 let scale = 1; // Taille initiale de l'iceberg
@@ -28,7 +28,7 @@ document.addEventListener('mousemove', (e) => {
 function positionSun() {
     const icebergRect = iceberg.getBoundingClientRect();
     const sunX = icebergRect.right/10 + 400; // Positionné juste à droite de l'iceberg
-    const sunY = icebergRect.top + (icebergRect.height / 2) - 40; // Un peu plus haut que le centre de l'iceberg
+    const sunY = icebergRect.top-60 + (icebergRect.height / 2) - 40; // Un peu plus haut que le centre de l'iceberg
     sun.style.left = `${sunX}px`;
     sun.style.top = `${sunY}px`;
 }
@@ -56,7 +56,7 @@ document.addEventListener("mousemove", (event) => {
 
     // Suivre la position de la souris avec le décalage calculé
     const sunX = event.clientX - offsetX - 950; // Ajuster la position avec le décalage
-    const sunY = event.clientY - offsetY; // Ajuster la position avec le décalage
+    const sunY = event.clientY - offsetY ; // Ajuster la position avec le décalage
     sun.style.left = `${Math.max(0, Math.min(window.innerWidth - 80, sunX))}px`;
     sun.style.top = `${Math.max(0, Math.min(window.innerHeight - 80, sunY))}px`;
 
@@ -67,15 +67,15 @@ document.addEventListener("mousemove", (event) => {
 
     // Ajuster la taille de l'iceberg en fonction de la distance
     if(distance >= 1240 || distance <= 820){
-        dropsContainer.style.display = "none";
         scale=1;
+        watersize.style.height ="45%"
     }else{
-        dropsContainer.style.display = "flex"; // Afficher les gouttes
 
         const icebergPosition = iceberg.getBoundingClientRect();
 
-        dropsContainer.style.left = `${icebergPosition.left-958 + icebergPosition.width / 2 - 10}px`; // Centrer les gouttes
-        dropsContainer.style.top = `${icebergPosition.top + icebergPosition.height - 20}px`; // Placer les gouttes juste en dessous de l'iceberg
+
+
+        watersize.style.height = "50%";
         if(distance>1000){
             scale= Math.max(0.5,(distance-1050)/200)
         }else{

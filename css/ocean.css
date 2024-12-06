@@ -83,20 +83,6 @@
     border-radius: 10px;
 }
 
-.drops {
-    position: absolute; /* Positionnement absolu par rapport au conteneur parent */
-    display: flex; /* Utiliser flexbox pour aligner les gouttes */
-    pointer-events: none; /* Les gouttes ne doivent pas interférer avec les événements de la souris */
-}
-
-.drop {
-    width: 20px; /* Largeur de la goutte */
-    height: 30px; /* Hauteur de la goutte */
-    background-color: blue; /* Couleur de la goutte */
-    border-radius: 50%; /* Arrondir les bords pour donner une forme de goutte */
-    margin: 5px; /* Espacement entre les gouttes */
-    opacity: 0.8; /* Légère transparence */
-}
 
 
 /* Animation de chute pour les gouttes */
