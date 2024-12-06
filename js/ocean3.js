@@ -28,7 +28,6 @@ function generateDechet() {
     }, 20); // Animation de la chute
 }
 
-// Vérifier si le déchet entre en collision avec la poubelle
 function checkCollision(dechet) {
     const poubelle = document.getElementById('poubelle');
     const dechetRect = dechet.getBoundingClientRect();
