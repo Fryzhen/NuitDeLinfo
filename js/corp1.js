@@ -1,10 +1,11 @@
+import {gameover} from './gameover.js';
 const bonhomme = document.getElementById("bonhomme");
 const temperatureBar = document.getElementById("temperatureBar");
 
 const images = {
-    red: "../images/bonhommerouge.png",
-    green: "../images/bonhommevert.png",
-    blue: "../images/bonhommebleu.png",
+    red: "../img/bonhommerouge.png",
+    green: "../img/bonhommevert.png",
+    blue: "../img/bonhommebleu.png",
 };
 
 const changeBonhommeImage = (color) => {
@@ -12,10 +13,12 @@ const changeBonhommeImage = (color) => {
 };
 
 let greenStartTime = null;
-
+let timeSick = null;
 const checkGreenDuration = () => {
+    if (timeSick && (Date.now() - timeSick) / 1000 > 10) {
+        gameover("avez laissé geler/bruler votre corp!"); // cheh
+    }
     if (bonhomme.src.includes("vert") && greenStartTime) {
-        console.log("checkGreenDuration", (Date.now() - greenStartTime) / 1000);
         if ((Date.now() - greenStartTime) / 1000 > 5) {
             const isRed = Math.random() < 0.5;
             changeBonhommeImage(isRed ? "red" : "blue");
@@ -23,6 +26,7 @@ const checkGreenDuration = () => {
                 ? Math.random() * (40 - 37.5) + 37.5
                 : Math.random() * (36.5 - 34) + 34;
             greenStartTime = null;
+            timeSick = Date.now();
         }
     }
 };
@@ -30,11 +34,11 @@ const checkGreenDuration = () => {
 setInterval(() => checkGreenDuration(), 500);
 
 temperatureBar.addEventListener("input", () => {
-    console.log("temperatureBar", temperatureBar.value);
     const temp = +temperatureBar.value;
     if (temp === 37) {
         if (!greenStartTime) greenStartTime = Date.now();
         changeBonhommeImage("green");
+        timeSick = null
     }
     else {
         greenStartTime = null;

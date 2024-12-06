@@ -17,10 +17,10 @@
     top: 0; /* Optionnel: peut ajuster la position verticale */
     display: flex;
 }
-#container {
+#container-globule {
     height: 33%;
 }
-#container img {
+#container-globule img {
     position: absolute;
     cursor: pointer;
     width: 50px; /* Adjust the size as needed */
@@ -28,22 +28,19 @@
     z-index: 1000;
     transition: opacity 0.3s ease;
 }
+#jeuvirus{
+    justify-content: center;
+    align-items: center;
+}
 
 #globule {
-    position: absolute;
-    width: 300px;
-    height: auto;
     z-index: 1000;
-    left:200px;
-    bottom: 100px;
-    display: flex;
-
-    }
+    height: 100px;
+}
 
 
 /* Zone englobante */
 #temp {
-    padding: 10px;
     display: flex;
     flex-direction: column; /* Organisation verticale */
     align-items: center;
@@ -111,4 +108,73 @@
 .ideal {
     font-weight: bold;
     color: green;
+}
+
+#corp{
+    text-align: center;
+    /* faire un dégardé de rouge au rouge clair centré au milieu*/
+    background: linear-gradient(#7e0000, #ff6666,#7e0000);
+
+}
+#poumon{
+    transition: background-color 0.5s;
+    transition: opacity 0.5s;
+    opacity: 1;
+    height: 33%;
+}
+#imgPoumon{
+    width: 22%;
+    transition: transform 0.5s ease;
+    display: block;
+    margin: 0 auto;
+}
+#respirer {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #00aac0;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.3s;
+    font-family: "Noto Sans"
+}
+hr{
+    color: black;
+    margin-top:0;
+    height: 1px;
+    background-color: black;
+}
+
+#respirer:hover {
+    background-color: #5bc8c4;
+    transform: scale(1.05);
+
+}
+
+.oxygene-barre {
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    height: 20px;
+    width: 50%;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+
+.oxygene-barre-interne {
+    background-color: #93e6f4;
+    height: 100%;
+    width: 100%;
+    transition: width 0.05s linear;
+
+}
+#game-over {
+    display: none; /* Masqué par défaut */
+    font-size: 24px;
+    color: red;
+    text-align: center;
+    margin-top: 20px;
 }

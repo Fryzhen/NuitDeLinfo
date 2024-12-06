@@ -1,9 +1,12 @@
+import {gameover} from "./gameover.js";
+
+let nbDechets = 0;
 
 // Fonction pour générer une nouvelle image de déchet
 async function generateDechet() {
 
     const dechet = document.createElement('img');
-    dechet.src = 'images/dechets1.png'; // Image du déchet
+    dechet.src = 'img/dechets1.png'; // Image du déchet
     dechet.alt = 'Déchet';
     dechet.style.position = 'absolute';
     dechet.style.width = '50px';
@@ -14,6 +17,7 @@ async function generateDechet() {
     document.getElementById('container').appendChild(dechet);
 
     let dechetTop = 0;
+    nbDechets++;
     let isTouchedByPoubelle = false; // Variable pour savoir si le déchet a été touché par la poubelle
 
     while (dechetTop < 200 && !isTouchedByPoubelle) {
@@ -35,14 +39,10 @@ function checkCollision(dechet) {
     let isTouchedByPoubelle = false;
 
     // Vérifier si les rectangles de l'image de déchet et de la poubelle se chevauchent
-    if (
-        dechetRect.top < poubelleRect.bottom &&
-        dechetRect.bottom > poubelleRect.top &&
-        dechetRect.left < poubelleRect.right &&
-        dechetRect.right > poubelleRect.left
-    ) {
+    if (dechetRect.top < poubelleRect.bottom && dechetRect.bottom > poubelleRect.top && dechetRect.left < poubelleRect.right && dechetRect.right > poubelleRect.left) {
         // Si collision, supprimer le déchet du DOM et marquer qu'il a été récupéré
         dechet.remove();
+        nbDechets--;
         isTouchedByPoubelle = true; // Le déchet a été récupéré
     }
 
@@ -68,7 +68,12 @@ function movePoubelle(e) {
 document.addEventListener('mousemove', movePoubelle);
 
 // Générer un nouveau déchet toutes les 5 secondes
-setInterval(generateDechet, 5000); // Intervalle de 5 secondes
+setInterval(() => {
+    if (nbDechets < 10) {
+        generateDechet();
+    }
+    else {
+        gameover("n'avez pas récupérer les déchets a temps")
+    }
+}, 5000); // Intervalle de 5 secondes
 
-
-//--------------------------------------------------------------------------------------------------------------------------------------
