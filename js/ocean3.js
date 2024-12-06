@@ -1,5 +1,8 @@
 // Fonction pour générer une nouvelle image de déchet
 function generateDechet() {
+    // Afficher l'alerte "Attention, pense à trier"
+    alert('Attention, pense à trier !');
+
     const dechet = document.createElement('img');
     dechet.src = 'images/dechets1.png'; // Image du déchet
     dechet.alt = 'Déchet';
@@ -11,13 +14,6 @@ function generateDechet() {
     dechet.style.top = '0px'; // Position de départ en haut
     document.getElementById('container').appendChild(dechet);
 
-    function displayPollutionMessage() {
-        const message = document.getElementById('pollutionMessage');
-        message.style.display = 'block'; // Afficher le message
-        setTimeout(() => {
-            message.style.display = 'none'; // Cacher le message après 3 secondes
-        }, 3000);
-    }
     let dechetTop = 0;
     let isTouchedByPoubelle = false; // Variable pour savoir si le déchet a été touché par la poubelle
 
@@ -26,11 +22,6 @@ function generateDechet() {
             dechetTop += 2;
             dechet.style.top = dechetTop + 'px';
         } else {
-            if (!isTouchedByPoubelle) {
-                // Si le déchet atteint le bas sans être touché par la poubelle, afficher le message
-                displayPollutionMessage();
-            }
-            dechet.remove();
             clearInterval(interval); // Arrêter l'animation du déchet
         }
         checkCollision(dechet); // Vérifier la collision avec la poubelle
@@ -76,9 +67,6 @@ function movePoubelle(e) {
 
 // Ajouter un écouteur d'événement pour déplacer la poubelle avec le curseur
 document.addEventListener('mousemove', movePoubelle);
-
-// Fonction pour afficher le message "Tu es un pollueur"
-
 
 // Générer un nouveau déchet toutes les 5 secondes
 setInterval(generateDechet, 5000); // Intervalle de 5 secondes
