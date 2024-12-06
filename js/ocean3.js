@@ -1,4 +1,4 @@
-/*
+
 // Fonction pour générer une nouvelle image de déchet
 function generateDechet() {
     // Afficher l'alerte "Attention, pense à trier"
@@ -71,7 +71,7 @@ document.addEventListener('mousemove', movePoubelle);
 // Générer un nouveau déchet toutes les 5 secondes
 setInterval(generateDechet, 5000); // Intervalle de 5 secondes
 
-*/
+
 //--------------------------------------------------------------------------------------------------------------------------------------
 
 // Pompe
