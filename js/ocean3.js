@@ -1,6 +1,6 @@
 
 // Fonction pour générer une nouvelle image de déchet
-function generateDechet() {
+async function generateDechet() {
 
     const dechet = document.createElement('img');
     dechet.src = 'images/dechets1.png'; // Image du déchet
@@ -16,16 +16,16 @@ function generateDechet() {
     let dechetTop = 0;
     let isTouchedByPoubelle = false; // Variable pour savoir si le déchet a été touché par la poubelle
 
-    let interval = setInterval(() => {
-        if (dechetTop < 200) { // Limite de la hauteur du container
-            dechetTop += 2;
-            dechet.style.top = dechetTop + 'px';
-        } else {
-            clearInterval(interval); // Arrêter l'animation du déchet
-        }
-        checkCollision(dechet); // Vérifier la collision avec la poubelle
-    }, 20); // Animation de la chute
-
+    while (dechetTop < 200 && !isTouchedByPoubelle) {
+        await new Promise(resolve => setTimeout(resolve, 20)); // Attendre 10 ms
+        dechetTop += 2;
+        dechet.style.top = dechetTop + 'px';
+        isTouchedByPoubelle = checkCollision(dechet);
+    }
+    while (!isTouchedByPoubelle) {
+        await new Promise(resolve => setTimeout(resolve, 20)); // Attendre 10 ms
+        isTouchedByPoubelle = checkCollision(dechet);
+    }
 }
 
 function checkCollision(dechet) {
