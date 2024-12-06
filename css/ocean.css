@@ -123,7 +123,7 @@
     border-radius: 50%;
     cursor: grab;
     transition: transform 0.3s ease;
-    z-index: 2; /* Le soleil est au-dessus de tout */
+    z-index: 4; /* Le soleil est au-dessus de tout */
     top: calc(15%); /* Positionné juste à côté de l'iceberg */
     left: calc(50% + 80px);/* Ajusté pour être plus proche de l'iceberg */
 }
