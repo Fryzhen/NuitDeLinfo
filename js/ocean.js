@@ -66,8 +66,15 @@ document.addEventListener("mousemove", (event) => {
 
     // Ajuster la taille de l'iceberg en fonction de la distance
     if(distance >= 1240 || distance <= 820){
+        dropsContainer.style.display = "none";
         scale=1;
     }else{
+        dropsContainer.style.display = "flex"; // Afficher les gouttes
+
+        const icebergPosition = iceberg.getBoundingClientRect();
+
+        dropsContainer.style.left = `${icebergPosition.left-980 + icebergPosition.width / 2 - 10}px`; // Centrer les gouttes
+        dropsContainer.style.top = `${icebergPosition.top + icebergPosition.height - 20}px`; // Placer les gouttes juste en dessous de l'iceberg
         if(distance>1000){
             scale= Math.max(0.5,(distance-1050)/200)
         }else{
@@ -78,16 +85,6 @@ document.addEventListener("mousemove", (event) => {
     console.log(distance);
     iceberg.style.transform = `scale(${scale})`;
 
-    // Afficher les gouttes sur l'iceberg uniquement quand il rétrécit
-    if (scale < 1) {
-        dropsContainer.style.display = "flex"; // Afficher les gouttes
-        // Positionner les gouttes sur l'iceberg
-        const icebergPosition = iceberg.getBoundingClientRect();
-        dropsContainer.style.left = `${icebergPosition.left + icebergPosition.width / 2 - 10}px`; // Centrer les gouttes
-        dropsContainer.style.top = `${icebergPosition.top + icebergPosition.height}px`; // Placer les gouttes juste en dessous de l'iceberg
-    } else {
-        dropsContainer.style.display = "none"; // Cacher les gouttes si l'iceberg est à sa taille initiale
-    }
 });
 
 document.addEventListener("mouseup", () => {
