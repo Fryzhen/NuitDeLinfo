@@ -7,9 +7,10 @@
     padding-bottom: 5px;
     transition: opacity 0.5s;
     opacity: 1;
+    height: 33%;
 }
 #imgPoumon{
-    width: 35%;
+    width: 22%;
     transition: transform 0.5s ease;
     display: block;
     margin: 0 auto;
