@@ -1,22 +1,45 @@
 const iceberg = document.querySelector(".iceberg");
 const sun = document.getElementById("sun");
-const dropsContainer = document.querySelector(".drops");
+const watersize = document.querySelector(".water");
+
 
 let scale = 1; // Taille initiale de l'iceberg
-let dragging = false; // État du soleil (en train d'être déplacé ou non)
-let offsetX, offsetY; // Décalage entre le soleil et la souris
+let isDragging = false;
+let offsetX, offsetY;
 
+sun.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    // Calculer l'offset entre la position de la souris et la position du soleil
+    offsetX = e.clientX - sun.getBoundingClientRect().left;
+    offsetY = e.clientY - sun.getBoundingClientRect().top;
+});
+document.addEventListener('mousemove', (e) => {
+
+    if (isDragging) {
+        // Mettre à jour la position du soleil en fonction de la position de la souris
+        const sunX = e.clientX - offsetX ;
+        const sunY = e.clientY - offsetY;
+        sun.style.left = `${sunX}px`;
+        sun.style.top = `${sunY}px`;
+    }
+
+});
 // Positionner le soleil juste à droite et un peu au-dessus de l'iceberg
 function positionSun() {
     const icebergRect = iceberg.getBoundingClientRect();
-    const sunX = icebergRect.right + 20; // Positionné juste à droite de l'iceberg
-    const sunY = icebergRect.top + (icebergRect.height / 2) - 40; // Un peu plus haut que le centre de l'iceberg
+    const sunX = icebergRect.right/10 + 400; // Positionné juste à droite de l'iceberg
+    const sunY = icebergRect.top-60 + (icebergRect.height / 2) - 40; // Un peu plus haut que le centre de l'iceberg
     sun.style.left = `${sunX}px`;
     sun.style.top = `${sunY}px`;
 }
+document.addEventListener('mouseup', () => {
+    isDragging = false; // Arrêter le drag lorsque la souris est relâchée
+});
+// Appeler la fonction pour positionner le soleil initialement
+
+positionSun();
 
 // Initialiser la position du soleil
-positionSun();
 
 // Gestion du déplacement du soleil
 sun.addEventListener("mousedown", (event) => {
@@ -32,8 +55,8 @@ document.addEventListener("mousemove", (event) => {
     if (!dragging) return;
 
     // Suivre la position de la souris avec le décalage calculé
-    const sunX = event.clientX - offsetX; // Ajuster la position avec le décalage
-    const sunY = event.clientY - offsetY; // Ajuster la position avec le décalage
+    const sunX = event.clientX - offsetX - 950; // Ajuster la position avec le décalage
+    const sunY = event.clientY - offsetY ; // Ajuster la position avec le décalage
     sun.style.left = `${Math.max(0, Math.min(window.innerWidth - 80, sunX))}px`;
     sun.style.top = `${Math.max(0, Math.min(window.innerHeight - 80, sunY))}px`;
 
@@ -41,20 +64,28 @@ document.addEventListener("mousemove", (event) => {
     const icebergRect = iceberg.getBoundingClientRect();
     const distance = Math.abs(sunX - icebergRect.right);
 
+
     // Ajuster la taille de l'iceberg en fonction de la distance
-    scale = Math.max(0.5, Math.min(2, 2 - distance / 200)); // Distance > 200 rétrécit, < 200 grossit
+    if(distance >= 1240 || distance <= 820){
+        scale=1;
+        watersize.style.height ="45%"
+    }else{
+
+        const icebergPosition = iceberg.getBoundingClientRect();
+
+
+
+        watersize.style.height = "58%";
+        if(distance>1000){
+            scale= Math.max(0.5,(distance-1050)/200)
+        }else{
+            scale= Math.max(0.5,(1050-distance)/200)
+        }
+
+    }
+    console.log(distance);
     iceberg.style.transform = `scale(${scale})`;
 
-    // Afficher les gouttes sur l'iceberg uniquement quand il rétrécit
-    if (scale < 1) {
-        dropsContainer.style.display = "flex"; // Afficher les gouttes
-        // Positionner les gouttes sur l'iceberg
-        const icebergPosition = iceberg.getBoundingClientRect();
-        dropsContainer.style.left = `${icebergPosition.left + icebergPosition.width / 2 - 10}px`; // Centrer les gouttes
-        dropsContainer.style.top = `${icebergPosition.top + icebergPosition.height}px`; // Placer les gouttes juste en dessous de l'iceberg
-    } else {
-        dropsContainer.style.display = "none"; // Cacher les gouttes si l'iceberg est à sa taille initiale
-    }
 });
 
 document.addEventListener("mouseup", () => {
