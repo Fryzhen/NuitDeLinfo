@@ -4,15 +4,29 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script src="js/corp.js" defer></script>
+    <script src="js/corps_1.js" defer></script>
     <script src="js/ocean.js" defer></script>
     <script src="js/ocean3.js" defer></script>
     <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/corp.css">
     <link rel="stylesheet" href="css/ocean.css">
 </head>
 <body>
-<div id="corp">
-
-</div>
+    <div id="corp">
+        <div id="corps_1"></div>
+        <div id="temperatureContainer">
+            <input type="range" id="temperatureBar" min="34" max="40" step="0.1" value="37">
+            <div id="temperatureLabels">
+                <span>34°</span>
+                <span>35°</span>
+                <span>36°</span>
+                <span class="ideal">37°</span>
+                <span>38°</span>
+                <span>39°</span>
+                <span>40°</span>
+            </div>
+        </div>
+    </div>
 
 <div id="ocean">
     <div class="glacier">
