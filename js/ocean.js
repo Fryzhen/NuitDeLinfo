@@ -75,7 +75,7 @@ document.addEventListener("mousemove", (event) => {
 
 
 
-        watersize.style.height = "50%";
+        watersize.style.height = "58%";
         if(distance>1000){
             scale= Math.max(0.5,(distance-1050)/200)
         }else{
