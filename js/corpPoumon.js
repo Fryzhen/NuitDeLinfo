@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const respirer = document.getElementById('respirer');
     const barreInterne = document.getElementById('oxygene-barre-interne');
     const tempsRestant = document.getElementById('temps-restant');
-    const background = document.getElementById('poumon');
 
     let interval;
     let currentWidth = 100;
@@ -16,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let oxygeneLevel = 100; // Niveau d'oxygène initial
 
     function respirerPoumon() {
-        imgPoumon.style.transform = 'scale(1.15)';
+        imgPoumon.style.transform = 'scale(1.1)';
         setTimeout(() => {
             imgPoumon.style.transform = 'scale(1)';
         }, 500);
@@ -25,17 +24,13 @@ document.addEventListener("DOMContentLoaded", function() {
     function reduireBarreOxygene() {
         if (currentWidth > 0) {
             currentWidth -= decrementPerInterval;
-            imgPoumon.style.opacity = currentWidth / 100;
             barreInterne.style.width = currentWidth + '%';
             timeRemaining = Math.ceil((currentWidth / 100) * totalTime); // Met à jour le temps restant
             tempsRestant.textContent = timeRemaining + 's'; // Affiche le temps restant
-            const greenValue = Math.floor((currentWidth / 100) * 255); // Calcule la valeur verte
-            background.style.backgroundColor = `rgb(${0}, ${greenValue}, ${0})`;
         } else {
             clearInterval(interval);
             gameOverMessage.style.display = 'block'
-            respirer.disabled = true;
-
+            alert("Game Over! Vous avez épuisé votre oxygène.");
         }
     }
 
@@ -49,10 +44,8 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     respirer.addEventListener('click', function() {
-        if(!respirer.disabled){
-            respirerPoumon();
-            resetBarreOxygene();
-        }
+        respirerPoumon();
+        resetBarreOxygene();
     });
 
     // Démarre l'intervalle pour réduire la barre d'oxygène

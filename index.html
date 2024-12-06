@@ -8,8 +8,9 @@
     <script src="js/ocean1.js" defer></script>
     <script src="js/ocean2.js" defer></script>
     <script src="js/ocean3.js" defer></script>
-
+    <script src="js/corpPoumon.js" defer></script>
     <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/corpPoumon.css">
     <link rel="stylesheet" href="css/corp.css">
     <link rel="stylesheet" href="css/ocean.css">
 </head>
@@ -30,10 +31,21 @@
                 </div>
             </div>
         </div>
-        <div>
+        <div id="poumon">
+            <img src="img/poumon1.png" id="imgPoumon">
+            <p id="respirer">Cliquez ici pour respirer <span id="temps-restant">100s</span></p>
+            <div class="oxygene-barre">
+                <div class="oxygene-barre-interne" id="oxygene-barre-interne"></div>
+            </div>
+            <div id="gameOver" style="display: none; color: red; font-size: 24px;">Vous avez perdu !</div>
         </div>
-        <div>
-        </div>
+        <div id="jeuvirus">
+            <div id="container"></div>
+            <img id="globule" src="Images/globulesblanc.png" alt="Globule">
+            <script src="js/corpvirus.js"></script>
+            <div id="gameOverScreen" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); color: white; font-size: 40px; text-align: center; line-height: 100vh;">
+                Game Over!
+            </div>
     </div>
     <div id="ocean">
         <div class="glacier">
