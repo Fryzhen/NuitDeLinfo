@@ -1,0 +1,159 @@
+/*all*/
+#ocean {
+    display: flex;
+    flex-direction: column;
+    > div {
+        height: 33%;
+        border: 1px black;
+    }
+}
+/* vague */
+
+.wave-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.wave {
+    position: absolute;
+    bottom: 0;
+    width: 200%;
+
+    animation: wave-animation 10s linear infinite;
+}
+
+@keyframes wave-animation {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* pompe */
+.pump {
+    position: relative;
+    width: 50px;
+    height: 200px;
+    background: #ddd;
+    border-radius: 25px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.handle {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 50px;
+    background: #0077cc;
+    border-radius: 25px;
+    cursor: pointer;
+    touch-action: none; /* Pour mobile */
+}
+
+.progress-bar {
+    position: relative;
+    width: 300px;
+    height: 30px;
+    background: #ddd;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background: #00aaff;
+    transition: width 0.2s ease;
+}
+
+.progress-text {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    line-height: 30px;
+    font-weight: bold;
+    color: #333;
+}
+/* glacier */
+.glacier {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    overflow: hidden;
+}
+
+.sky {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 60%;
+    background: linear-gradient(to bottom, #87ceeb, #cce7ff);
+    z-index: -1;
+}
+
+.water {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 58%;
+    background: #4682b4;
+    z-index: 0.5;
+    transition: height 0.5s ease, opacity 0.5s ease;
+}
+
+.iceberg {
+    position: absolute;
+    bottom: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform-origin: bottom center;
+    z-index: 0;
+}
+
+.ice-shape {
+    position: relative;
+    width: 150px;
+    height: 180px;
+    background: linear-gradient(to bottom, #ffffff, #dceefc);
+    clip-path: polygon(50% 0, 80% 10%, 90% 30%, 70% 80%, 50% 100%, 30% 80%, 10% 50%, 20% 10%);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), inset 0 -5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+
+
+/* Animation de chute pour les gouttes */
+@keyframes fall {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(10px);
+    }
+}
+/* Soleil */
+.sun {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, #ffdf00, #ffaa00);
+    border-radius: 50%;
+    cursor: grab;
+    transition: transform 0.3s ease;
+    z-index: 4; /* Le soleil est au-dessus de tout */
+    top: calc(15%); /* Positionné juste à côté de l'iceberg */
+    left: calc(50% + 80px);/* Ajusté pour être plus proche de l'iceberg */
+}
+
