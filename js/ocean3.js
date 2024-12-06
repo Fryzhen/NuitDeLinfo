@@ -1,8 +1,10 @@
-/*
+
 // Fonction pour générer une nouvelle image de déchet
 function generateDechet() {
     // Afficher l'alerte "Attention, pense à trier"
+
     alert('Attention, pense à trier !');
+
 
     const dechet = document.createElement('img');
     dechet.src = 'images/dechets1.png'; // Image du déchet
@@ -27,6 +29,7 @@ function generateDechet() {
         }
         checkCollision(dechet); // Vérifier la collision avec la poubelle
     }, 20); // Animation de la chute
+
 }
 
 // Vérifier si le déchet entre en collision avec la poubelle
@@ -72,7 +75,7 @@ document.addEventListener('mousemove', movePoubelle);
 // Générer un nouveau déchet toutes les 5 secondes
 setInterval(generateDechet, 5000); // Intervalle de 5 secondes
 
-*/
+
 //--------------------------------------------------------------------------------------------------------------------------------------
 
 // Pompe
@@ -84,7 +87,7 @@ const waves = document.getElementsByClassName("wave");
 const pumpHeight = 200; // Hauteur de la pompe
 const handleHeight = 50; // Hauteur de la poignée
 let progress = 100;
-let isDragging = false;
+let isDragging1 = false;
 
 // Met à jour la barre de progression
 function updateProgressBar() {
@@ -94,16 +97,16 @@ function updateProgressBar() {
 
 // Lorsque l'utilisateur commence à glisser
 handle.addEventListener("mousedown", (event) => {
-    isDragging = true;
+    isDragging1 = true;
 });
 
 handle.addEventListener("touchstart", (event) => {
-    isDragging = true;
+    isDragging1 = true;
 });
 
 // Pendant le glissement
 document.addEventListener("mousemove", (event) => {
-    if (!isDragging) return;
+    if (!isDragging1) return;
 
     const pumpRect = handle.parentElement.getBoundingClientRect();
     let newTop = event.clientY - pumpRect.top - handleHeight / 2;
@@ -122,7 +125,7 @@ document.addEventListener("mousemove", (event) => {
 });
 
 document.addEventListener("touchmove", (event) => {
-    if (!isDragging) return;
+    if (!isDragging1) return;
 
     const pumpRect = handle.parentElement.getBoundingClientRect();
     let newTop = event.touches[0].clientY - pumpRect.top - handleHeight / 2;
@@ -142,13 +145,13 @@ document.addEventListener("touchmove", (event) => {
 
 // Lorsque l'utilisateur relâche
 document.addEventListener("mouseup", () => {
-    isDragging = false;
+    isDragging1 = false;
     // Retour automatique de la poignée
     handle.style.top = "0px";
 });
 
 document.addEventListener("touchend", () => {
-    isDragging = false;
+    isDragging1 = false;
     // Retour automatique de la poignée
     handle.style.top = "0px";
 });
