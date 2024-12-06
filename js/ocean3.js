@@ -75,5 +75,5 @@ setInterval(() => {
     else {
         gameover("n'avez pas récupérer les déchets a temps")
     }
-}, 5000); // Intervalle de 5 secondes
+}, 2000); // Intervalle de 5 secondes
 
