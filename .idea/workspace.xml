@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="830c3880-fe29-4ca3-a1b1-64555b4d2cef" name="Changes" comment="Initial commit 2">
+    <list default="true" id="e736fb83-3ba8-4e12-86d3-b4cbb59b0cf3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/images/bonhommebleu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/bonhommerouge.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/bonhommevert.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/corps_1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/corp.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/corp.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -15,43 +21,44 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
-        <option value="CSS File" />
         <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/featureCoprsHumain" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="featureCoprsHumain" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;Letalityyy&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Letalityyy/NuitDeLinfo.git&quot;,
-    &quot;accountId&quot;: &quot;4884b894-4d31-4d57-8cce-6e7a0b6b9a49&quot;
-  }
-}</component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 0
+  &quot;associatedIndex&quot;: 8
 }</component>
-  <component name="ProjectId" id="2pnrJwng4vR7nKGFunNeHoluKwJ" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="2pnuXoFAGzxFnZ0xnctiUw9spbD" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/depinfo/WebstormProjects/NuitDeLinfo",
-    "list.type.of.created.stylesheet": "CSS",
+    "git-widget-placeholder": "featureCoprsHumain",
+    "last_opened_file_path": "/home/depinfo/WebstormProjects/NuitDeLinfo/images",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -62,12 +69,16 @@
   }
 }]]></component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/images" />
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/images" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="javaScript.js" type="NodeJSConfigurationType" nameIsGenerated="true" path-to-js-file="javaScript.js" working-dir="$PROJECT_DIR$/js">
+    <configuration name="corp.js" type="NodeJSConfigurationType" nameIsGenerated="true" path-to-js-file="corp.js" working-dir="$PROJECT_DIR$/js">
       <method v="2" />
     </configuration>
   </component>
@@ -81,39 +92,18 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="830c3880-fe29-4ca3-a1b1-64555b4d2cef" name="Changes" comment="" />
-      <created>1733412613400</created>
+      <changelist id="e736fb83-3ba8-4e12-86d3-b4cbb59b0cf3" name="Changes" comment="" />
+      <created>1733414202226</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1733412613400</updated>
-      <workItem from="1733412615248" duration="3139000" />
-      <workItem from="1733415771766" duration="3337000" />
+      <updated>1733414202226</updated>
+      <workItem from="1733414203308" duration="1042000" />
+      <workItem from="1733415253800" duration="3847000" />
+      <workItem from="1733420211574" duration="15935000" />
     </task>
-    <task id="LOCAL-00001" summary="Initial commit">
-      <option name="closed" value="true" />
-      <created>1733412703409</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1733412703409</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Initial commit 2">
-      <option name="closed" value="true" />
-      <created>1733415098949</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1733415098949</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Initial commit" />
-    <MESSAGE value="Initial commit 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit 2" />
   </component>
 </project>
