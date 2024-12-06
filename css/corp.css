@@ -17,6 +17,9 @@
     top: 0; /* Optionnel: peut ajuster la position verticale */
     display: flex;
 }
+#container {
+    height: 33%;
+}
 #container img {
     position: absolute;
     cursor: pointer;
