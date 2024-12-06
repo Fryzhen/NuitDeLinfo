@@ -2,6 +2,7 @@ const iceberg = document.querySelector(".iceberg");
 const sun = document.getElementById("sun");
 const dropsContainer = document.querySelector(".drops");
 
+
 let scale = 1; // Taille initiale de l'iceberg
 let isDragging = false;
 let offsetX, offsetY;
@@ -73,7 +74,7 @@ document.addEventListener("mousemove", (event) => {
 
         const icebergPosition = iceberg.getBoundingClientRect();
 
-        dropsContainer.style.left = `${icebergPosition.left-980 + icebergPosition.width / 2 - 10}px`; // Centrer les gouttes
+        dropsContainer.style.left = `${icebergPosition.left-958 + icebergPosition.width / 2 - 10}px`; // Centrer les gouttes
         dropsContainer.style.top = `${icebergPosition.top + icebergPosition.height - 20}px`; // Placer les gouttes juste en dessous de l'iceberg
         if(distance>1000){
             scale= Math.max(0.5,(distance-1050)/200)
