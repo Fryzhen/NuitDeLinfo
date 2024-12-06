@@ -1,14 +1,15 @@
 /* GLOBAL */
 body {
-    background-image: url('images/fond.jpeg'); 
+    background-image: url('../images/fond2.jpg');
     background-size: cover; 
     background-position: center center; 
     background-attachment: fixed; 
     color: #ecf0f1;
     padding: 0;
+
 }
 
-/* HEADER */
+
 header {
     position: sticky;
     top: 0;
